@@ -1,12 +1,9 @@
-import logo from './assets/logo.svg'
-// import iconX from './assets/icon-x.svg'
-// import iconO from './assets/icon-o.svg'
+import Logo from './components/logo'
 
 function App() {
 	return (
 		<section className="max-w-[327px] gap-8 flex flex-col w-full">
-			<img src={logo} className="mx-auto" />
-
+			<Logo />
 			<div className="bg-navy-secondary flex justify-center items-center flex-col rounded-[15px] px-6 py-6 shadow-[0_8px_#10212A]">
 				<h1 className="text-base font-bold mb-[24px]">PICK PLAYER 1’S MARK</h1>
 
