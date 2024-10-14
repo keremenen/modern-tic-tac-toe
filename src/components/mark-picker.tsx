@@ -21,9 +21,9 @@ export default function MarkPicker() {
 
   return (
     <div className="flex w-full flex-col items-center justify-center rounded-xl bg-navy-secondary px-6 py-6 shadow-[0_8px_#10212A]">
-      <h1 className="mb-[24px] text-base font-bold">PICK PLAYER 1’S MARK</h1>
+      <h1 className="mb-6 text-base font-bold">PICK PLAYER 1’S MARK</h1>
 
-      <div className="mb-[17px] flex h-18 w-full rounded-xl bg-navy px-2 py-2">
+      <div className="mb-4 flex h-18 w-full rounded-xl bg-navy px-2 py-2">
         {MarkPickerIcons.map(({ icon: Icon, value, props }) => (
           <button
             key={value}
