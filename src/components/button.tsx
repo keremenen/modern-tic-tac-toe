@@ -17,7 +17,7 @@ export default function Button({
   return (
     <button
       className={cn(
-        'flex items-center justify-center rounded-2xl py-3 font-bold text-navy transition-colors duration-100 ease-in-out',
+        'flex items-center justify-center rounded-2xl p-4 py-3 font-bold uppercase text-navy transition-colors duration-100 ease-in-out',
         {
           'bg-mango-base shadow-[0_8px_#CC8B13] hover:bg-mango-light':
             color === 'mango',
