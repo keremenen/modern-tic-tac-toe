@@ -5,7 +5,7 @@ import GameWariants from "./game-wariants";
 export default function SettingsBoard() {
   return (
     <>
-      <Logo />
+      <Logo className="mx-auto" />
       <MarkPicker />
       <GameWariants />
     </>
