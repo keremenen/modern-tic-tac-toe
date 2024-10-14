@@ -18,11 +18,14 @@ export default {
           base: '#F2B137',
           light: '#FFC860',
         },
-        background: '#1A2A33',
-        'background-secondary': '#1F3641',
+        navy: '#1A2A33',
+        'navy-secondary': '#1F3641',
         gray: '#A8BFC9',
         white: '#DBE8ED'
-      }
+      },
+      height: {
+        '18': '4.5rem'
+      },
     },
   },
   plugins: [],
