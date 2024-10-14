@@ -1,12 +1,11 @@
-import { useState } from 'react'
 import IconO from '../assets/icons/icon-o'
 import IconX from '../assets/icons/icon-x'
 import { cn } from '../lib/utils'
 import { useGameStore } from '../stores/gameStore'
 
 export default function MarkPicker() {
-  const [selectedMark, setSelectedMark] = useState('O')
-  const setFirstPlayerMark = useGameStore((state) => state.setFirstPlayerMark)
+  const firstPlayerMark = useGameStore((state) => state.firstPlayerMark)
+  const pickFirstPlayerMark = useGameStore((state) => state.pickFirstPlayerMark)
 
   const MarkPickerIcons = [
     {
@@ -33,19 +32,19 @@ export default function MarkPicker() {
             className={cn(
               'flex h-full flex-grow items-center justify-center rounded-xl',
               {
-                'bg-inherit': value !== selectedMark,
-                'fill-red bg-gray': value === selectedMark,
+                'bg-inherit': value !== firstPlayerMark,
+                'fill-red bg-gray': value === firstPlayerMark,
               },
             )}
             onClick={() => {
-              setSelectedMark(value)
-              setFirstPlayerMark(value as 'X' | 'O')
+              // setSelectedMark(value)
+              pickFirstPlayerMark(value as 'X' | 'O')
             }}
           >
             <Icon
               {...props}
               className={cn(props.className, {
-                'fill-navy': selectedMark === value,
+                'fill-navy': firstPlayerMark === value,
               })}
             />
           </button>
