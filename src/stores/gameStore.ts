@@ -1,22 +1,36 @@
 import { create } from 'zustand'
 
+const WINNING_COMBINATIONS = [
+  [0, 1, 2], // Horizontal
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6], // Vertical
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8], // Diagonal
+  [2, 4, 6],
+]
+
 type TGameStore = {
-  firstPlayerMark: string
+  firstPlayerMark: 'X' | 'O' | null
   board: ('' | 'X' | 'O')[]
   currentTurn: 'X' | 'O'
+  gameMode: 'versus-player' | 'versus-cpu' | null
 
+  setGameMode: (mode: 'versus-player' | 'versus-cpu') => void
   changeTurn: () => void
   setBoard: (index: number) => void
-  setFirstPlayerMark: (mark: string) => void
+  setFirstPlayerMark: (mark: 'X' | 'O') => void
 }
 
 export const useGameStore = create<TGameStore>((set) => ({
-  firstPlayerMark: 'X',
+  firstPlayerMark: null,
   currentTurn: 'X',
   board: ['', '', '', '', '', '', '', '', ''],
+  gameMode: null,
 
-  setFirstPlayerMark: (mark: string) => set({ firstPlayerMark: mark }),
-  setBoard: (index: number) =>
+  setFirstPlayerMark: (mark) => set({ firstPlayerMark: mark }),
+  setBoard: (index) =>
     set((state) => {
       state.changeTurn()
       return {
@@ -25,9 +39,9 @@ export const useGameStore = create<TGameStore>((set) => ({
         ),
       }
     }),
-
   changeTurn: () =>
     set((state) =>
       state.currentTurn === 'X' ? { currentTurn: 'O' } : { currentTurn: 'X' },
     ),
+  setGameMode: (mode) => set({ gameMode: mode }),
 }))

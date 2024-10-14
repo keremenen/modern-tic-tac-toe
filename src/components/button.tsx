@@ -12,10 +12,12 @@ export default function Button({
   children,
   className,
   color,
+  onClick,
   variant = 'primary',
 }: ButtonProps) {
   return (
     <button
+      onClick={onClick}
       className={cn(
         'flex items-center justify-center rounded-2xl p-4 py-3 font-bold uppercase text-navy transition-colors duration-100 ease-in-out',
         {
