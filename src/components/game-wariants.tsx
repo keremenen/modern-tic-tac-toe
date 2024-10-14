@@ -5,7 +5,6 @@ export default function GameWariants() {
     <div className="flex flex-col gap-6">
       <Button color="mango">NEW GAME (VS CPU)</Button>
       <Button color="turquoise">NEW GAME (VS PLAYER)</Button>
-      <Button color="gray">NEW GAME (VS PLAYER)</Button>
     </div>
   );
 }
