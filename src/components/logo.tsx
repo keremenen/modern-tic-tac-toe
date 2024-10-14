@@ -1,10 +1,10 @@
-import logo from ".././assets/logo.svg";
-import { cn } from "../lib/utils";
+import logo from '.././assets/logo.svg'
+import { cn } from '../lib/utils'
 
 type LogoProps = {
-  className?: string;
-};
+  className?: string
+}
 
 export default function Logo({ className }: LogoProps) {
-  return <img src={logo} className={cn(className)} />;
+  return <img src={logo} className={cn(className)} />
 }
