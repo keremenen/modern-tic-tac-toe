@@ -23,7 +23,7 @@ export default function Button({
             color === 'mango',
           'bg-turquoise-base shadow-[0_8px_#118C87] hover:bg-turquoise-light':
             color === 'turquoise',
-          'bg-gray shadow-[0_8px_#6B8997] hover:bg-white': color === 'gray',
+          'bg-gray shadow-[0_4px_#6B8997] hover:bg-white': color === 'gray',
           'aspect-square rounded-md shadow-[0_4px_#6B8997]':
             variant === 'secondary',
         },
