@@ -12,11 +12,13 @@ export default {
       colors: {
         turquoise: {
           base: '#31C3BD',
-          light: '#65E9E4'
+          light: '#65E9E4',
+          shadow: '#118C87'
         },
         mango: {
           base: '#F2B137',
           light: '#FFC860',
+          shadow: '#CC8B13'
         },
         navy: '#1A2A33',
         'navy-secondary': '#1F3641',
