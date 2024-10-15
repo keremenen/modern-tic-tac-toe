@@ -1,6 +1,3 @@
-import IconX from '../assets/icons/icon-x'
-import Button from './button'
-
 type ModalProps = {
   children?: React.ReactNode
 }
