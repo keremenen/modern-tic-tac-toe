@@ -96,13 +96,14 @@ export const useGameStore = create<TGameStore>((set, get) => ({
     checkIfBoardIsFull()
   },
   resetGame: () => {
-    const { setGameMode, setFirstPlayerMark } = get()
+    const { setGameMode, setFirstPlayerMark, currentTurn } = get()
     setGameMode(null)
     setFirstPlayerMark('X')
     set({
       board: ['', '', '', '', '', '', '', '', ''],
       winner: null,
       scores: { x: 0, o: 0, ties: 0 },
+      currentTurn: 'X',
     })
   },
   gotoNextRound: () => {
