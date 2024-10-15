@@ -16,7 +16,7 @@ type TGameStore = {
   board: ('' | 'X' | 'O')[]
   currentTurn: 'X' | 'O'
   gameMode: 'versus-player' | 'versus-cpu' | null
-  winner: 'X' | 'O' | null
+  winner: 'X' | 'O' | 'tie' | null
   marksAssignments: { x: 'P1' | 'P2'; o: 'P1' | 'P2' }
   scores: { x: number; o: number; ties: number }
 
@@ -29,6 +29,8 @@ type TGameStore = {
   reverseMarkAssignments: () => void
   pickFirstPlayerMark: (value: 'X' | 'O') => void
   resetGame: () => void
+  gotoNextRound: () => void
+  checkIfBoardIsFull: () => void
 }
 
 export const useGameStore = create<TGameStore>((set, get) => ({
@@ -56,8 +58,14 @@ export const useGameStore = create<TGameStore>((set, get) => ({
     for (const combination of WINNING_COMBINATIONS) {
       const [a, b, c] = combination
       if (board[a] && board[a] === board[b] && board[a] === board[c]) {
-        console.log('Winner:', board[a])
-        set({ winner: board[a] })
+        set({
+          winner: board[a],
+          scores: {
+            ...get().scores,
+            [board[a].toLowerCase() as 'x' | 'o']:
+              get().scores[board[a].toLowerCase() as 'x' | 'o'] + 1,
+          },
+        })
         return
       }
     }
@@ -72,21 +80,45 @@ export const useGameStore = create<TGameStore>((set, get) => ({
     }))
   },
   handleMove: (index) => {
-    const { setBoard, changeTurn, checkWinner, board, winner } = get()
+    const {
+      setBoard,
+      changeTurn,
+      checkWinner,
+      checkIfBoardIsFull,
+      board,
+      winner,
+    } = get()
     if (board[index] || winner) return
     setBoard(index)
     changeTurn()
     checkWinner()
+    checkIfBoardIsFull()
   },
   resetGame: () => {
     const { setGameMode, setFirstPlayerMark } = get()
     setGameMode(null)
     setFirstPlayerMark('X')
-    set({ board: ['', '', '', '', '', '', '', '', ''] })
+    set({
+      board: ['', '', '', '', '', '', '', '', ''],
+      winner: null,
+      scores: { x: 0, o: 0, ties: 0 },
+    })
+  },
+  gotoNextRound: () => {
+    set({ board: ['', '', '', '', '', '', '', '', ''], winner: null })
   },
   pickFirstPlayerMark: (mark) => {
     const { setFirstPlayerMark, reverseMarkAssignments } = get()
     setFirstPlayerMark(mark)
     reverseMarkAssignments()
+  },
+  checkIfBoardIsFull: () => {
+    const { board } = get()
+    if (board.every((mark) => mark)) {
+      set({
+        winner: 'tie',
+        scores: { ...get().scores, ties: get().scores.ties + 1 },
+      })
+    }
   },
 }))
