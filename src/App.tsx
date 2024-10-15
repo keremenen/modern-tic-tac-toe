@@ -5,7 +5,7 @@ import { useGameStore } from './stores/gameStore'
 function App() {
   const gameMode = useGameStore((state) => state.gameMode)
   return (
-    <section className="flex w-full max-w-[327px] flex-col items-center gap-8 py-4">
+    <section className="flex w-full max-w-[327px] flex-col items-center gap-8 py-4 sm:max-w-[460px]">
       {gameMode ? <GameBoard /> : <SettingsBoard />}
     </section>
   )

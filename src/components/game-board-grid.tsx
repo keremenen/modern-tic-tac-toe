@@ -14,8 +14,8 @@ export default function GameBoardGrid() {
           onClick={() => handleMove(index)}
           className="flex aspect-square w-full items-center justify-center rounded-xl bg-navy-secondary shadow-[0_4px_#10212A]"
         >
-          {mark === 'X' && <IconX className="size-10" />}
-          {mark === 'O' && <IconO className="size-10" />}
+          {mark === 'X' && <IconX className="size-10 sm:size-16" />}
+          {mark === 'O' && <IconO className="size-10 sm:size-16" />}
         </button>
       ))}
     </div>

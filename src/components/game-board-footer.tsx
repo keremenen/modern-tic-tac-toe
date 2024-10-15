@@ -8,21 +8,21 @@ export default function GameBoardFooter() {
     {
       title: 'X',
       score: scores.x,
-      color: 'turquoise-base',
+      variant: 'turquoise',
       mark: 'X',
       markAssignment: marksAssignments.x,
     },
     {
       title: 'TIES',
       score: scores.ties,
-      color: 'gray-base',
+      variant: 'gray',
       mark: '',
       markAssignment: '',
     },
     {
       title: 'O',
       score: scores.o,
-      color: 'mango-base',
+      variant: 'mango',
       mark: 'O',
       markAssignment: marksAssignments.o,
     },
@@ -33,7 +33,7 @@ export default function GameBoardFooter() {
       {scoreTabs.map((tab, index) => (
         <div
           key={index}
-          className={`w-full rounded-xl bg-${tab.color} py-3 text-center uppercase`}
+          className={`w-full rounded-xl ${tab.variant} py-3 text-center uppercase`}
         >
           <h3 className="text-[14px] font-medium">
             {tab.title} {tab.markAssignment && `(${tab.markAssignment})`}
