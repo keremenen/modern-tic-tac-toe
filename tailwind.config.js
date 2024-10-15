@@ -20,9 +20,12 @@ export default {
           light: '#FFC860',
           shadow: '#CC8B13'
         },
+        gray: {
+          base: '#A8BFC9',
+          light: '#DBE8ED',
+        },
         navy: '#1A2A33',
         'navy-secondary': '#1F3641',
-        gray: '#A8BFC9',
         white: '#DBE8ED'
       },
       height: {

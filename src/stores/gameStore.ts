@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { MarkTypes } from '../lib/types'
 
 const WINNING_COMBINATIONS = [
   [0, 1, 2], // Horizontal
@@ -12,11 +13,11 @@ const WINNING_COMBINATIONS = [
 ]
 
 type TGameStore = {
-  firstPlayerMark: 'X' | 'O'
-  board: ('' | 'X' | 'O')[]
-  currentTurn: 'X' | 'O'
+  firstPlayerMark: MarkTypes
+  board: (MarkTypes | '')[]
+  currentTurn: MarkTypes
   gameMode: 'versus-player' | 'versus-cpu' | null
-  winner: 'X' | 'O' | 'tie' | null
+  winner: (MarkTypes | 'tie') | null
   marksAssignments: { x: 'P1' | 'P2'; o: 'P1' | 'P2' }
   scores: { x: number; o: number; ties: number }
 

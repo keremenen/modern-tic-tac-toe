@@ -19,3 +19,14 @@
     src: url(fonts/Montserrat-Regular.ttf) format('truetype');
   }
 }
+
+.mango{
+  @apply bg-mango-base hover:bg-mango-light focus:bg-mango-light
+  shadow-[0_4px_#CC8B13]
+}
+.turquoise{
+  @apply bg-turquoise-base hover:bg-turquoise-light focus:bg-turquoise-light shadow-[0_4px_#118C87]
+}
+.gray{
+  @apply bg-gray-base hover:bg-gray-light focus:bg-gray-light shadow-[0_4px_#6B8997]
+}

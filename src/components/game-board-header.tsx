@@ -10,22 +10,21 @@ export default function GameBoardHeader() {
   const resetGame = useGameStore((state) => state.resetGame)
 
   return (
-    <div className="mb-9 grid w-full grid-flow-row grid-cols-3 items-center gap-2">
+    <div className="mb-4 grid w-full grid-flow-row grid-cols-3 items-center gap-2">
       <Logo />
-      <div className="flex items-center gap-2 rounded-md bg-navy-secondary px-4 py-2 text-sm font-bold uppercase shadow-[0_4px_#10212A]">
+      <div className="flex items-center justify-center gap-2 rounded-md bg-navy-secondary px-4 py-2 text-sm font-bold uppercase shadow-[0_4px_#10212A]">
         {currentTurn === 'X' ? (
-          <IconX className="size-4 fill-gray" />
+          <IconX className="fill-gray-base size-4" />
         ) : (
-          <IconO className="size-4 fill-gray" />
+          <IconO className="fill-gray-base size-4" />
         )}
         turn
       </div>
       <Button
-        color="gray"
         onClick={resetGame}
-        className="flex h-9 w-10 items-center justify-center justify-self-end rounded-md"
+        className="gray size-10 justify-self-end rounded-md !shadow-none"
       >
-        <IconRestart className="scale-[1.8]" />
+        <IconRestart className="scale-[2]" />
       </Button>
     </div>
   )

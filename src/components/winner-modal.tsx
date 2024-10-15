@@ -44,10 +44,10 @@ export default function WinnerModal() {
         </ModalDescription>
       )}
       <ModalControls>
-        <Button color="gray" onClick={resetGame}>
+        <Button className="gray" onClick={resetGame}>
           Quit
         </Button>
-        <Button color="mango" onClick={gotoNextRound}>
+        <Button className="mango" onClick={gotoNextRound}>
           Next Round
         </Button>
       </ModalControls>
