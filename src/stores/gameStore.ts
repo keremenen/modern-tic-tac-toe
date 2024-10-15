@@ -96,7 +96,7 @@ export const useGameStore = create<TGameStore>((set, get) => ({
     checkIfBoardIsFull()
   },
   resetGame: () => {
-    const { setGameMode, setFirstPlayerMark, currentTurn } = get()
+    const { setGameMode, setFirstPlayerMark } = get()
     setGameMode(null)
     setFirstPlayerMark('X')
     set({

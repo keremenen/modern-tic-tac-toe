@@ -3,3 +3,5 @@ export type MarkPickerIcon = {
   value: 'X' | 'O'
   props: React.SVGProps<SVGSVGElement>
 }
+
+export type MarkTypes = 'X' | 'O'
