@@ -7,8 +7,8 @@ type IconRestartProps = {
 export default function IconRestart({ className }: IconRestartProps) {
   return (
     <svg
-      width="100%"
-      height="100%"
+      width="20"
+      height="20"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       className={cn('fill-[#1F3641]', className)}

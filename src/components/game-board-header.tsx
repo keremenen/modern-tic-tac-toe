@@ -25,7 +25,7 @@ export default function GameBoardHeader() {
         onClick={resetGame}
         className="flex h-9 w-10 items-center justify-center justify-self-end rounded-md"
       >
-        <IconRestart className="size-4" />
+        <IconRestart className="scale-[1.8]" />
       </Button>
     </div>
   )
