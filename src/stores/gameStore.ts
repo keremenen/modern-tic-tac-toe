@@ -17,16 +17,18 @@ type TGameStore = {
   currentTurn: 'X' | 'O'
   gameMode: 'versus-player' | 'versus-cpu' | null
   winner: 'X' | 'O' | null
-  playersChoices: { x: string; o: string }
+  marksAssignments: { x: 'P1' | 'P2'; o: 'P1' | 'P2' }
+  scores: { x: number; o: number; ties: number }
 
   checkWinner: () => void
-  setGameMode: (mode: 'versus-player' | 'versus-cpu') => void
+  setGameMode: (mode: 'versus-player' | 'versus-cpu' | null) => void
   changeTurn: () => void
   setBoard: (index: number) => void
   setFirstPlayerMark: (mark: 'X' | 'O') => void
   handleMove: (index: number) => void
-  revesePlayersChoices: () => void
+  reverseMarkAssignments: () => void
   pickFirstPlayerMark: (value: 'X' | 'O') => void
+  resetGame: () => void
 }
 
 export const useGameStore = create<TGameStore>((set, get) => ({
@@ -36,7 +38,7 @@ export const useGameStore = create<TGameStore>((set, get) => ({
   gameMode: null,
   winner: null,
   scores: { x: 0, o: 0, ties: 0 },
-  playersChoices: { x: 'P1', o: 'P2' },
+  marksAssignments: { x: 'P1', o: 'P2' },
 
   setFirstPlayerMark: (mark) => set({ firstPlayerMark: mark }),
   setBoard: (index) =>
@@ -61,11 +63,11 @@ export const useGameStore = create<TGameStore>((set, get) => ({
     }
   },
   setGameMode: (mode) => set({ gameMode: mode }),
-  revesePlayersChoices: () => {
+  reverseMarkAssignments: () => {
     set((state) => ({
-      playersChoices: {
-        x: state.playersChoices.o,
-        o: state.playersChoices.x,
+      marksAssignments: {
+        x: state.marksAssignments.o,
+        o: state.marksAssignments.x,
       },
     }))
   },
@@ -76,9 +78,15 @@ export const useGameStore = create<TGameStore>((set, get) => ({
     changeTurn()
     checkWinner()
   },
+  resetGame: () => {
+    const { setGameMode, setFirstPlayerMark } = get()
+    setGameMode(null)
+    setFirstPlayerMark('X')
+    set({ board: ['', '', '', '', '', '', '', '', ''] })
+  },
   pickFirstPlayerMark: (mark) => {
-    const { setFirstPlayerMark, revesePlayersChoices } = get()
+    const { setFirstPlayerMark, reverseMarkAssignments } = get()
     setFirstPlayerMark(mark)
-    revesePlayersChoices()
+    reverseMarkAssignments()
   },
 }))

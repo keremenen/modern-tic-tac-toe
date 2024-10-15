@@ -7,6 +7,7 @@ import Logo from './logo'
 
 export default function GameBoardHeader() {
   const currentTurn = useGameStore((state) => state.currentTurn)
+  const resetGame = useGameStore((state) => state.resetGame)
 
   return (
     <div className="mb-9 grid w-full grid-flow-row grid-cols-3 items-center gap-2">
@@ -21,6 +22,7 @@ export default function GameBoardHeader() {
       </div>
       <Button
         color="gray"
+        onClick={resetGame}
         className="flex h-9 w-10 items-center justify-center justify-self-end rounded-md"
       >
         <IconRestart className="size-4" />

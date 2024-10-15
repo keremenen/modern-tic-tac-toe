@@ -1,13 +1,14 @@
 import { useGameStore } from '../stores/gameStore'
 
 export default function GameBoardFooter() {
-  const playersChoices = useGameStore((state) => state.playersChoices)
+  const marksAssignments = useGameStore((state) => state.marksAssignments)
   const scores = useGameStore((state) => state.scores)
+
   return (
     <div className="grid w-full grid-flow-row grid-cols-3 gap-5 text-navy">
       <div className="w-full rounded-xl bg-turquoise-base py-3 text-center uppercase">
         <h3 className="text-[14px] font-medium leading-tight">
-          X ({playersChoices.x})
+          X ({marksAssignments.x})
         </h3>
         <p className="text-[20px] font-bold leading-tight">{scores.x}</p>
       </div>
@@ -17,7 +18,7 @@ export default function GameBoardFooter() {
       </div>
       <div className="w-full rounded-xl bg-mango-base py-3 text-center uppercase">
         <h3 className="text-[14px] font-medium leading-tight">
-          O ({playersChoices.o})
+          O ({marksAssignments.o})
         </h3>
         <p className="text-[20px] font-bold leading-tight">{scores.o}</p>
       </div>
